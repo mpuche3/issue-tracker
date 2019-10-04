@@ -1,6 +1,8 @@
-// Generate case example:
+//////////////////////////////////////////////
+// Generate sample                          //
+//////////////////////////////////////////////
 
-data = range(1000).map(n => generateObj(n));
+data = mpa.range(1000).map(n => generateObj(n));
 
 
 function generateObj(n) {

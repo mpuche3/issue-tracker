@@ -1,9 +1,28 @@
 /////////////////////////////////////////////////////////////////////////////////
-// Assign buttons callback                                   //
+// Provide export/import file functionality                                    //
 /////////////////////////////////////////////////////////////////////////////////
-document.querySelector("#export > img").onclick = exportFile;
-document.querySelector("#open > img").onclick = openFile;
+const cssExportBttnSelector = "#export > img";
+const cssImportBttnSelector = "#open > img";
+const defaultFileName = "data.json";
 
+// Load the data from a str to the app
+// Input: <str> app data from file
+// Output: None
+// Side Effect: Load str input to app
+const loadStrToAppData = loadStrSheet;
+
+// Save the data from the app to a str
+// Input: None
+// Ouput: <str> app data
+// Side Effect: None
+const saveAppDatatoStr = _ => convertSheetToStr(window.sheet01);            
+
+
+/////////////////////////////////////////////////////////////////////////////////
+// Assign buttons callback                                                     //
+/////////////////////////////////////////////////////////////////////////////////
+document.querySelector(cssExportBttnSelector).onclick = downloadFile;
+document.querySelector(cssImportBttnSelector).onclick = openFile;
 
 /////////////////////////////////////////////////////////////////////////////////
 // Prevent default behaviour when dropping a file on the window                //
@@ -27,7 +46,7 @@ document.querySelector("*").addEventListener("drop", e => {
     let r = new FileReader();
     r.onload = e => {
         const strSheet = e.target.result;
-        loadStrSheet (strSheet);
+        loadStrToAppData (strSheet);
     };
     let f = e.dataTransfer.files[0];
     r.readAsText(f);
@@ -40,7 +59,7 @@ function showFile() {
     const reader = new FileReader()
     reader.onload = event => {
         const strFileContent = event.target.result;
-        loadStrSheet (strFileContent);
+        loadStrToAppData (strFileContent);
         document.querySelector("#deleteme").remove();
     };
     const file = document.querySelector("#deleteme").files[0];
@@ -58,22 +77,19 @@ function openFile() {
 // Download File                                                               //
 /////////////////////////////////////////////////////////////////////////////////
 function downloadTextFile (str, fileName) {
-    var bb = new Blob([str], {type: "text/plain"});
+    const blob = new Blob([str], {type: "text/plain"});
     var a = document.createElement("a");
     a.display = "none";
     a.download = fileName;
-    a.href = window.URL.createObjectURL(bb);
+    a.href = window.URL.createObjectURL(blob);
     a.textContent = "Download ready";
     a.dataset.downloadurl = ["text/plain", a.download, a.href].join(":");
+    a.remove();
     a.click();
 }
 
-function downloadFile(fileName){
-    if (fileName === undefined) fileName = "fileName.json";
-    const str = convertSheetToStr(window.sheet01);
+function downloadFile() {
+    const fileName = defaultFileName;
+    const str = saveAppDatatoStr();
     downloadTextFile (str, fileName);
-}
-
-function exportFile () {
-    downloadFile("issues.xson");
 }

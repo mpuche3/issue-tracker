@@ -1,6 +1,6 @@
-////////
-//
-///////
+//////////////////////////////////////////////
+// Disable defaul browser default behaviour //
+//////////////////////////////////////////////
 
 document.addEventListener('copy', function(e) {
     // e.preventDefault();
@@ -14,12 +14,8 @@ document.addEventListener('paste', function(e) {
     // e.preventDefault();
 });
 
-////////
-//
-///////
-
 document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
+    // e.preventDefault();
 }, false);
 
 document.addEventListener("keydown", function (e) {

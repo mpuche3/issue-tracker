@@ -1,5 +1,12 @@
 
-let cell = {};
+/////////////////////////////////////////////////////////////////////////////////
+// App main logic file                                                         //
+/////////////////////////////////////////////////////////////////////////////////
+
+// Create initial sheet
+sheet01 = createInitSheet("sheet01");
+
+
 
 function createInitSheet(htmlContainerId) {
     const data = [
@@ -114,8 +121,6 @@ function createInitSheet(htmlContainerId) {
 
     return sheet;
 }
-
-sheet01 = createInitSheet("sheet01");
 
 function convertSheetToStr (sheet) {
     const data = sheet.data;
