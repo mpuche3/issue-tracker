@@ -6,12 +6,8 @@
 // Create initial sheet
 sheet01 = createInitSheet("sheet01");
 
-
-
 function createInitSheet(htmlContainerId) {
-    const data = [
-        {}
-    ]
+    const data = []
 
     const config = {
         height: 205,

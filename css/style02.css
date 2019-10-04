@@ -1,122 +1,119 @@
-/*******************************************/ 
-/* CSS for toolbars (main and secondaries) */ 
-/*******************************************/ 
- 
+/*******************************************/
+/* CSS for toolbars (main and secondaries) */
+/*******************************************/
+
 *:focus {
-    outline: none;
-  }
-  
-  #main-toolbar {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: calc(100% - 65px);
-    height: 80px;
-    z-index: 1000;
-    background-color: rgba(200, 200, 200, 0.9);
-    display: flex;
-  }
-  
-  .secondary-toolbar {
-    position: fixed;
-    bottom: 140px;
-    right: 30px;
-    width: calc(100% - 60px);
-    height: 80px;
-    z-index: 1000;
-    background-color: rgba(200, 200, 200, 0.9);
-    display: none;
-    overflow: hidden;
-  }
-  
-  .toolbar-bttn {
-    width: 80px;
-    height: 80px;
-    position: relative;
-    left: 0px;
-    opacity: 0.7;
-  }
-  
-  .toolbar-bttn:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-  
-  .toolbar-bttn:hover > svg > ellipse {
-    stroke: black;
-    fill: rgba(255, 255, 255, 0.8);
-    fill-opacity: 1;
-  }
-  
-  .toolbar-bttn:hover {
-    opacity: 1 !important;
-  }
-  
-  .bttn-icon{
-    width: 60px;
-    height: 60px;
-    margin:10px 10px 10px 10px;
-  }
-  
-  .bttn-icon:hover{
-    opacity: 1;
-  }
-  
-  .toolbar-delimeter{
-    width: 2px;
-    height: 60px;
-    margin:10px 10px 10px 10px;
-    opacity: 0.7;
-    background: black;
-  }
-  
-  svg {
-    width: 60px;
-    height: 60px;
-    margin:10px 10px 10px 10px;
-  }
-  
-  #mpaQrLogo {
-    position: fixed;
-    bottom: 30px;
-    right: 40px;
-    z-index: 1000;
-    display: flex;
-  }
-  
-  
-  
-  #inputCell {
-    /*display: none;*/
-    position: absolute;
-    left: 20px;
-    bottom: 120px;
-    width: calc(100% - 120px);
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 5px rgba(200, 200, 200, 0.9) solid;
-    overflow: hidden;
-    font: 15px arial, sans-serif;
-    padding: 5px;
-    /*contenteditable: true;*/
-  }
-  
-  #formatCell {
-    display: none;
-    position: absolute;
-    right: 30px;
-    bottom: 120px;
-    width: 65px;
-    height: 20px;
-    background-color: rgba(200, 200, 200, 0.9);
-    border: 5px rgba(200, 200, 200, 0.9) solid;
-    overflow: hidden;
-    font: 15px arial, sans-serif;
-    padding: 5px;
-    /*contenteditable: true;*/
-  }
-  
-  img.bttn-icon {
-    position: absolute;
-  }
-  
+  outline: none;
+}
+
+#main-toolbar {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: calc(100% - 65px);
+  height: 80px;
+  z-index: 1000;
+  background-color: rgba(200, 200, 200, 0.9);
+  display: flex;
+}
+
+.secondary-toolbar {
+  position: fixed;
+  bottom: 140px;
+  right: 30px;
+  width: calc(100% - 60px);
+  height: 80px;
+  z-index: 1000;
+  background-color: rgba(200, 200, 200, 0.9);
+  display: none;
+  overflow: hidden;
+}
+
+.toolbar-bttn {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  left: 0px;
+  opacity: 0.7;
+}
+
+.toolbar-bttn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.toolbar-bttn:hover>svg>ellipse {
+  stroke: black;
+  fill: rgba(255, 255, 255, 0.8);
+  fill-opacity: 1;
+}
+
+.toolbar-bttn:hover {
+  opacity: 1 !important;
+}
+
+.bttn-icon {
+  width: 60px;
+  height: 60px;
+  margin: 10px 10px 10px 10px;
+}
+
+.bttn-icon:hover {
+  opacity: 1;
+}
+
+.toolbar-delimeter {
+  width: 2px;
+  height: 60px;
+  margin: 10px 10px 10px 10px;
+  opacity: 0.7;
+  background: black;
+}
+
+svg {
+  width: 60px;
+  height: 60px;
+  margin: 10px 10px 10px 10px;
+}
+
+#mpaQrLogo {
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  z-index: 1000;
+  display: flex;
+}
+
+#inputCell {
+  /*display: none;*/
+  position: absolute;
+  left: 20px;
+  bottom: 120px;
+  width: calc(100% - 120px);
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 5px rgba(200, 200, 200, 0.9) solid;
+  overflow: hidden;
+  font: 15px arial, sans-serif;
+  padding: 5px;
+  /*contenteditable: true;*/
+}
+
+#formatCell {
+  display: none;
+  position: absolute;
+  right: 30px;
+  bottom: 120px;
+  width: 65px;
+  height: 20px;
+  background-color: rgba(200, 200, 200, 0.9);
+  border: 5px rgba(200, 200, 200, 0.9) solid;
+  overflow: hidden;
+  font: 15px arial, sans-serif;
+  padding: 5px;
+  /*contenteditable: true;*/
+}
+
+img.bttn-icon {
+  position: absolute;
+}
