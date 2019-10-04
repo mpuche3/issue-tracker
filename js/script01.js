@@ -11,8 +11,8 @@ function createInitSheet(htmlContainerId) {
         data: data,
         //layout: "fitColumns",
         columns: [{
-                title: "Issue",
-                field: "issue",
+                title: "ECR",
+                field: "ecr",
                 align: "center",
                 width: 90,
             },
@@ -31,7 +31,7 @@ function createInitSheet(htmlContainerId) {
                 editor:"input",
             },
             {
-                title: "Cost",
+                title: "COST",
                 field: "cost",
                 width: 120,
                 editor:"input",
