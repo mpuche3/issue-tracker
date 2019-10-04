@@ -4,7 +4,7 @@
 //////////////////////////////////////////////
 
 mpa = (function () {
-    
+
     // GET SAFE. 
     // AVOID ERRORS WHEN LOOKING IN DEEP NEXTED CHAINED OBJECTS
     // Use case: get(_ => a.b.c.d.e.f)
@@ -40,6 +40,32 @@ mpa = (function () {
         return arr;
     }
 
+    // 
+    function JSON_stringify (obj) {
+        const json = JSON.stringify(obj, function(key, value) {
+            if (typeof value === "function") {
+              return "/Function(" + value.toString() + ")/";
+            }
+            return value;
+          });
+
+        return json;
+    }
+
+    //
+    function JSON_parse (json) {
+        const obj = JSON.parse(json, function(key, value) {
+            if (typeof value === "string" &&
+                value.startsWith("/Function(") &&
+                value.endsWith(")/")) {
+              value = value.substring(10, value.length - 2);
+              return eval("(" + value + ")");
+            }
+            return value;
+        });
+        return obj;
+    }
+
     // Make this functions available to other functions in the app
-    return {get, logThis, range}
+    return {get, logThis, range, JSON_stringify, JSON_parse}
 })();

@@ -4,14 +4,13 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 // Create initial sheet
-sheet01 = createInitSheet("sheet01");
+sheet01 = createEmptyTable("sheet01");
 
-function createInitSheet(htmlContainerId) {
-    const data = []
+function createEmptyTable(htmlContainerId) {
 
     const config = {
         height: 205,
-        data: data,
+        data: [],
         //layout: "fitColumns",
         columns: [{
                 title: "ECR",
@@ -95,13 +94,16 @@ function createInitSheet(htmlContainerId) {
             },
 
         ],
-        cellClick:function(e, cell){
-            const verbose = sheet.state.verbose
+        cellClick: function(e, cell) {
+            // funny thing!
+            // When map.JSON_parse(mpa.JSON_stringigy(obj)), the function looks access to its outerfunction.
+            // TODO: find a permanent solution for this
+            const verbose = mpa.get(_ => sheet.state.verbose, 100);
             const data = cell.getData();
             const field = cell.getField();
             const value = cell.getValue();
             // cell.setValue(">>> " + value);
-            if (99 < verbose) mpa.logThis("data, field, value", data, field, value);
+            if (99 < verbose) mpa.logThis("cell, data, field, value", cell, data, field, value);
         },
     }
 
@@ -113,28 +115,26 @@ function createInitSheet(htmlContainerId) {
 
     const table = new Tabulator("#" + html.id, config);
 
-    const sheet = {data, config, state, html, table}
+    const sheet = {config, state, html, table}
 
     return sheet;
 }
 
 function convertSheetToStr (sheet) {
-    const data = sheet.data;
     const config = sheet.config;
     const state = sheet.state;
-    const objFile = {data, config, state};
-    const strFile = JSON.stringify(objFile);
+    const objFile = {config, state};
+    const strFile = mpa.JSON_stringify(objFile);
     return strFile;
 }
 
 function loadStrSheet (strSheet, htmlContainerId) {
     if (htmlContainerId === undefined) htmlContainerId = "sheet01";
-    const obj = JSON.parse(strSheet);
-    const data = obj.data;
+    const obj = mpa.JSON_parse(strSheet);
     const config = obj.config;
     const state = obj.state;
     const html = document.querySelector("#" + htmlContainerId);
     const table = new Tabulator("#" + htmlContainerId, config);
-    const sheet = {data, config, state, html, table}
+    const sheet = {config, state, html, table}
     return sheet;
 }

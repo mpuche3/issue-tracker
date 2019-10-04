@@ -3,7 +3,7 @@
 /////////////////////////////////////////////////////////////////////////////////
 const cssExportBttnSelector = "#export > img";
 const cssImportBttnSelector = "#open > img";
-const defaultFileName = "data.json";
+const defaultFileName = "data.xson";
 
 // Load the data from a str to the app
 // Input: <str> app data from file
