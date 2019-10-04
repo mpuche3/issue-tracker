@@ -23,7 +23,14 @@ function createEmptyTable(htmlContainerId) {
                 field: "status",
                 align: "center",
                 width: 90,
-                editor:"input",
+                editor:"select", 
+                editorParams:{
+                    values:{
+                        "Open": "Open",
+                        "Closed": "Closed",
+                        "Deleted": "Deleted",
+                    }
+                }
             },
             {
                 title: "Description",
@@ -42,13 +49,18 @@ function createEmptyTable(htmlContainerId) {
                 title: "ENG",
                 field: "eng",
                 width: 120,
-                editor:"input",
-            },
-            {
-                title: "CAD",
-                field: "cad",
-                width: 120,
-                editor:"input",
+                editor:"select", 
+                editorParams:{
+                    values:{
+                        "N/A": "N/A",
+                        "Pending": "Pending",
+                        "WIP - 10%": "WIP - 10%",
+                        "WIP - 10%": "WIP - 10%",
+                        "WIP - 10%": "WIP - 10%",
+                        "WIP - 10%": "WIP - 10%",
+                        "Completed": "Completed", 
+                    }
+                }
             },
             {
                 title: "12 Q's",
@@ -81,8 +93,14 @@ function createEmptyTable(htmlContainerId) {
                 editor:"input",
             },
             {
-                title: "Manufacturing",
+                title: "Manuf.",
                 field: "manufacturing",
+                width: 120,
+                editor:"input",
+            },
+            {
+                title: "Finance",
+                field: "finance",
                 width: 120,
                 editor:"input",
             },

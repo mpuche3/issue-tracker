@@ -20,6 +20,7 @@ function generateObj(n) {
         q12: chooseRamdonly("Completed", "Completed", "Completed", "Completed", "WIP - 80%", "WIP - 20%", "WIP - 60%", "WIP - 40%", "Rejected"),
         material: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         engineering: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
+        finance: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         studio: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         manufacturing: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         comments: generateRandomSentence(),
