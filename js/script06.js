@@ -8,7 +8,7 @@ data = mpa.range(1000).map(n => generateObj(n));
 function generateObj(n) {
     return {
         id: n,
-        ecr: "ECR_" + Math.floor(Math.random() * (99999 - 11111) + 11111),
+        ecr: "ECR" + Math.floor(Math.random() * (99999 - 11111) + 11111),
         status: chooseRamdonly("Open", "Open", "Open", "Open", "Closed", "Closed", "Deleted"),
         description: generateRandomSentence(),
         cost: chooseRamdonly("Completed", "Completed", "Completed", "N/A", "WIP - 60%", "WIP - 40%", "Rejected"),
@@ -23,7 +23,6 @@ function generateObj(n) {
         finance: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         studio: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         manufacturing: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
-        statusDescription: generateRandomSentence(),
         comments: generateRandomSentence(),
     }
 }

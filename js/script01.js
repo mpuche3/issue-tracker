@@ -31,7 +31,7 @@ function createEmptyTable(htmlContainerId) {
     const config = {
         height: 205,
         data: [],
-        selectable:true,
+        //selectable:true,
         movableColumns: true,
         //layout: "fitColumns",
         columns: [{
@@ -133,12 +133,6 @@ function createEmptyTable(htmlContainerId) {
                 width: 220,
                 editor: "input",
             },
-            {
-                title: "Status Description",
-                field: "statusDescription",
-                width: 220,
-                editor: "input",
-            },
         ],
         cellClick: function (e, cell) {
             // funny thing!
@@ -150,6 +144,31 @@ function createEmptyTable(htmlContainerId) {
             const value = cell.getValue();
             // cell.setValue(">>> " + value);
             if (99 < verbose) mpa.logThis("cell, data, field, value", cell, data, field, value);
+        },
+        rowDblClick:function(e, row) {
+            document.querySelector("#form").style.display = "flex";
+            document.querySelector("#main-toolbar").style.display = "none";
+            document.querySelector("#mpaQrLogo").style.display = "none";
+            document.querySelector("#sheet01").style.blur = "5px";
+            createCloseButton(document.querySelector("#form"));
+            const data = row.getData();
+            Object.keys(data).map(key => {
+                try {
+                    const elem = document.querySelector("#" + key);
+                    const id = data.id;
+                    elem.value = data[key];
+                    elem.innerText = data[key];
+                    elem.addEventListener("change", function() {
+                        const newRowValue = {};
+                        newRowValue["id"] = id;
+                        newRowValue[key] = elem.value;
+                        sheet.table.updateData([newRowValue]);
+                        console.log(newRowValue);
+                    })
+                } catch {
+                    //
+                }
+            })
         },
 
     }
@@ -240,3 +259,39 @@ function dateEditor(cell, onRendered, success, cancel, editorParams) {
     //return the editor element
     return editor;
 };
+
+// CREATE CLOSE BUTTON
+function createCloseButton() {
+    const parentElement = document.querySelector("#form")
+    const div = document.createElement("DIV");
+    div.style.display = "block";
+    div.style.cursor = "pointer";
+    div.style.position = "absolute";
+    div.style.top = "5px";
+    div.style.right = 0;
+    div.style.height = "30px";
+    div.style.width = "30px";
+    div.style.alignItems = "center";
+    div.style.justifyContent = "center";
+    div.onmouseenter = event=>div.style.color = "red";
+    div.onmouseleave = event=>div.style.color = "";
+    div.onclick = function(event) {
+        event.stopPropagation();
+        document.querySelector("#form").style.display = "none";
+        document.querySelector("#main-toolbar").style.display = "flex";
+        document.querySelector("#mpaQrLogo").style.display = "block";
+
+        const inputs = document.querySelectorAll("#form *");
+        [...inputs].map(input => {
+            inputClone = input.cloneNode(true);
+            input.parentNode.replaceChild(inputClone, input);
+        })
+
+    }
+    const span = document.createElement("SPAN");
+    span.innerHTML = "&#10005";
+    span.style.fontSize = "x-large";
+    div.appendChild(span);
+    parentElement.appendChild(div);
+
+}

@@ -1,0 +1,125 @@
+/*******************************************/
+/* CSS for toolbars (main and secondaries) */
+/*******************************************/
+
+.form {
+
+    display: flex;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: calc(100% - 17px);
+    height: calc(100% - 18px);
+
+    background-color: rgba(200, 200, 200, 1);
+    overflow: hidden;
+}
+
+/**    **/
+.form-row-title {
+    display: flex;
+    flex-direction: row;
+
+    margin: 30px;
+    margin-bottom: 0px;
+    height: 40px;
+    padding: 5px;
+    margin-left: 35px;
+    margin-bottom: 0px;
+
+    /* background-color: rgba(100, 200, 200, 0.9); */
+    overflow: hidden;
+}
+
+.form-id {
+    font: 35px arial, sans-serif;
+}
+
+.form-status {
+    font: 35px arial, sans-serif;
+    margin-left: auto;
+}
+
+
+
+/**    **/
+.form-row-inputs {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    margin-bottom: 0px;
+    /* background-color: rgba(200, 200, 200, 0.9); */
+    overflow: hidden;
+    height: 60px;
+    
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* background-color: rgba(100, 200, 200, 0.9); */
+    /* border: 1px solid black; */
+    border-bottom: 1px solid black;
+    margin-left: 10px;
+    
+    
+}
+
+.form-input-header {
+    /* background-color: rgba(200, 100, 200, 0.9); */
+    flex-grow: 1;
+    height: 30px;
+    font: 16px arial, sans-serif;
+    padding: 5px;
+
+}
+
+.form-input-value {
+    /* background-color: rgba(200, 200, 100, 0.9); */
+    flex-grow: 1;
+    height: 30px;
+    font: 16px arial, sans-serif;
+    border: 0px;
+    padding: 5px;
+    background-color: rgba(220, 220, 220, 0.8);
+
+}
+
+
+/**    **/
+.form-input-textarea {
+    flex-grow: 1;
+    width:100%;
+    height:100%;
+    font: 16px arial, sans-serif;
+
+}
+
+.form-input-textarea-value {
+    flex-grow: 1;
+    width:100%;
+    height:100%;
+    padding: 5px;
+    font: 16px arial, sans-serif;
+    background-color: rgba(220, 220, 220, 0.8);
+    border: 0;
+    resize: none;
+    
+}
+
+.form-row-comments{
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    flex-grow: 1;
+    /* background-color: rgba(200, 200, 200, 0.9); */
+    overflow: hidden;
+    resize: none;
+    padding: 10px;
+    z-index: 10;
+}
