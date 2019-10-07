@@ -134,43 +134,8 @@ function createEmptyTable(htmlContainerId) {
                 editor: "input",
             },
         ],
-        cellClick: function (e, cell) {
-            // funny thing!
-            // When map.JSON_parse(mpa.JSON_stringigy(obj)), the function looks access to its outerfunction.
-            // TODO: find a permanent solution for this
-            const verbose = mpa.get(_ => sheet.state.verbose, 100);
-            const data = cell.getData();
-            const field = cell.getField();
-            const value = cell.getValue();
-            // cell.setValue(">>> " + value);
-            if (99 < verbose) mpa.logThis("cell, data, field, value", cell, data, field, value);
-        },
-        rowDblClick:function(e, row) {
-            document.querySelector("#form").style.display = "flex";
-            document.querySelector("#main-toolbar").style.display = "none";
-            document.querySelector("#mpaQrLogo").style.display = "none";
-            document.querySelector("#sheet01").style.display = "none";
-            createCloseButton(document.querySelector("#form"));
-            const data = row.getData();
-            Object.keys(data).map(key => {
-                try {
-                    const elem = document.querySelector("#" + key);
-                    const id = data.id;
-                    elem.value = data[key];
-                    elem.innerText = data[key];
-                    elem.addEventListener("change", function() {
-                        const newRowValue = {};
-                        newRowValue["id"] = id;
-                        newRowValue[key] = elem.value;
-                        sheet.table.updateData([newRowValue]);
-                        console.log(newRowValue);
-                    })
-                } catch {
-                    //
-                }
-            })
-        },
-
+        cellClick: cellClick,
+        rowDblClick:rowDblClick
     }
 
     const state = {
@@ -202,12 +167,49 @@ function convertSheetToStr(sheet) {
     return strFile;
 }
 
+
+function cellClick (e, cell) {
+    const verbose = mpa.get(_ => sheet.state.verbose, 100);
+    const data = cell.getData();
+    const field = cell.getField();
+    const value = cell.getValue();
+    // cell.setValue(">>> " + value);
+    if (99 < verbose) mpa.logThis("cell, data, field, value", cell, data, field, value);
+}
+
+function rowDblClick (e, row) {
+    document.querySelector("#form").style.display = "flex";
+    document.querySelector("#main-toolbar").style.display = "none";
+    document.querySelector("#mpaQrLogo").style.display = "none";
+    document.querySelector("#sheet01").style.display = "none";
+    createCloseButton(document.querySelector("#form"));
+    const data = row.getData();
+    Object.keys(data).map(key => {
+        try {
+            const elem = document.querySelector("#" + key);
+            const id = data.id;
+            elem.value = data[key];
+            elem.innerText = data[key];
+            elem.addEventListener("change", function() {
+                const newRowValue = {};
+                newRowValue["id"] = id;
+                newRowValue[key] = elem.value;
+                sheet01.table.updateData([newRowValue]);
+                console.log(newRowValue);
+            })
+        } catch {
+            //
+        }
+    })
+}
+
 function loadStrSheet(strSheet, htmlContainerId) {
     if (htmlContainerId === undefined) htmlContainerId = "sheet01";
     const obj = mpa.JSON_parse(strSheet);
     const config = obj.config;
     const state = obj.state;
     const html = document.querySelector("#" + htmlContainerId);
+
     const table = new Tabulator("#" + htmlContainerId, config);
     const sheet = {
         config,
@@ -215,9 +217,11 @@ function loadStrSheet(strSheet, htmlContainerId) {
         html,
         table
     }
+    sheet01 = sheet;
     return sheet;
 }
 
+// this is an example NOT CURRENLTY IN USE:
 function dateEditor(cell, onRendered, success, cancel, editorParams) {
     //cell - the cell component for the editable cell
     //onRendered - function to call when the editor has been rendered
