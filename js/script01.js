@@ -149,7 +149,7 @@ function createEmptyTable(htmlContainerId) {
             document.querySelector("#form").style.display = "flex";
             document.querySelector("#main-toolbar").style.display = "none";
             document.querySelector("#mpaQrLogo").style.display = "none";
-            document.querySelector("#sheet01").style.blur = "5px";
+            document.querySelector("#sheet01").style.display = "none";
             createCloseButton(document.querySelector("#form"));
             const data = row.getData();
             Object.keys(data).map(key => {
@@ -280,6 +280,7 @@ function createCloseButton() {
         document.querySelector("#form").style.display = "none";
         document.querySelector("#main-toolbar").style.display = "flex";
         document.querySelector("#mpaQrLogo").style.display = "block";
+        document.querySelector("#sheet01").style.display = "block";
 
         const inputs = document.querySelectorAll("#form *");
         [...inputs].map(input => {
