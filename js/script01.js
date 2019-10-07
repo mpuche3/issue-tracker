@@ -31,6 +31,8 @@ function createEmptyTable(htmlContainerId) {
     const config = {
         height: 205,
         data: [],
+        selectable:true,
+        movableColumns: true,
         //layout: "fitColumns",
         columns: [{
                 title: "ECR",
@@ -38,6 +40,8 @@ function createEmptyTable(htmlContainerId) {
                 align: "center",
                 formatter:function(cell){return "<img src='svg/chip.svg' style='height:10px;max-width: 10px'></img>" + " " + cell.getValue().replace("_", "")},
                 width: 100,
+                frozen: true,
+
             },
             {
                 title: "Status",
@@ -126,7 +130,13 @@ function createEmptyTable(htmlContainerId) {
             {
                 title: "Comments",
                 field: "comments",
-                width: 420,
+                width: 220,
+                editor: "input",
+            },
+            {
+                title: "Status Description",
+                field: "statusDescription",
+                width: 220,
                 editor: "input",
             },
         ],

@@ -23,8 +23,8 @@ function generateObj(n) {
         finance: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         studio: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
         manufacturing: chooseRamdonly("Approved", "Approved", "Approved", "N/A", "WIP", "WIP", "Rejected"),
+        statusDescription: generateRandomSentence(),
         comments: generateRandomSentence(),
-        dob: "[1]_  "
     }
 }
 
