@@ -179,8 +179,7 @@ function cellClick (e, cell) {
 
 function rowDblClick (e, row) {
     document.querySelector("#form").style.display = "flex";
-    document.querySelector("#main-toolbar").style.display = "none";
-    document.querySelector("#mpaQrLogo").style.display = "none";
+    document.querySelector(".secondary-toolbar").style.display = "none";
     document.querySelector("#sheet01").style.display = "none";
     createCloseButton(document.querySelector("#form"));
     const data = row.getData();
@@ -282,8 +281,7 @@ function createCloseButton() {
     div.onclick = function(event) {
         event.stopPropagation();
         document.querySelector("#form").style.display = "none";
-        document.querySelector("#main-toolbar").style.display = "flex";
-        document.querySelector("#mpaQrLogo").style.display = "block";
+        //document.querySelector("#main-toolbar").style.display = "flex";
         document.querySelector("#sheet01").style.display = "block";
 
         const inputs = document.querySelectorAll("#form *");

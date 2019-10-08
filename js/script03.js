@@ -49,7 +49,11 @@ document.querySelector("*").addEventListener("drop", e => {
         loadStrToAppData (strSheet);
     };
     let f = e.dataTransfer.files[0];
-    r.readAsText(f);
+    try {
+        r.readAsText(f);
+    } catch (e) {
+        console.warn("Something has been drop to the app that can't be open. Error event below:");
+    }
 }, false);
 
 /////////////////////////////////////////////////////////////////////////////////

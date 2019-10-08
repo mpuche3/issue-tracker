@@ -9,7 +9,6 @@ function giveLogicToBttn(n) {
 		initialDisplayValue = toolbar.style.display;
 
 		[...document.querySelectorAll(".secondary-toolbar")].map(toolbar => {
-			console.log(toolbar);
 			toolbar.style.display = "none";
 		});
 		[...document.querySelector("#main-toolbar").children].map(toolbar => {

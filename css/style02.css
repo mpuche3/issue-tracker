@@ -8,24 +8,26 @@
 
 #main-toolbar {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  left: 30px;
+  bottom: 3px;
+  right: 0px;
+  left: 0px;
   height: 80px;
   z-index: 1000;
   background-color: rgba(200, 200, 200, 0.9);
+  background-color: grey;
+  border-top: 3px solid black;
   display: flex;
   
 }
 
 .secondary-toolbar {
   position: fixed;
-  bottom: 140px;
-  right: 40px;
-  left: 30px;
+  bottom: 95px;
+  right: 8px;
+  left: 8px;
   height: 80px;
   z-index: 1000;
-  background-color: rgba(200, 200, 200, 0.9);
+  background-color: rgba(180, 180, 180, 0.9);
   display: none;
   overflow: hidden;
 }
@@ -39,6 +41,7 @@
 .toolbar-bttn:hover {
   opacity: 1;
   cursor: pointer;
+  opacity: 1 !important;
 }
 
 .toolbar-bttn:hover>svg>ellipse {
@@ -47,14 +50,11 @@
   fill-opacity: 1;
 }
 
-.toolbar-bttn:hover {
-  opacity: 1 !important;
-}
-
 .bttn-icon {
   width: 60px;
   height: 60px;
   margin: 10px 10px 10px 10px;
+  
 }
 
 .bttn-icon:hover {
@@ -69,13 +69,13 @@
   background: black;
 }
 
-#mpaQrLogo {
+#mpaQrLogo { 
+  display: flex;
   position: absolute;
   bottom: -8px;
   right: 0px;
-  z-index: 1000;
-  display: flex;
   opacity: 0.9 !important;
+  z-index: 1000;
 }
 
 img.bttn-icon {
