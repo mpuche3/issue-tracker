@@ -10,18 +10,19 @@
   position: fixed;
   bottom: 40px;
   right: 40px;
-  width: calc(100% - 65px);
+  left: 30px;
   height: 80px;
   z-index: 1000;
   background-color: rgba(200, 200, 200, 0.9);
   display: flex;
+  
 }
 
 .secondary-toolbar {
   position: fixed;
   bottom: 140px;
-  right: 30px;
-  width: calc(100% - 60px);
+  right: 40px;
+  left: 30px;
   height: 80px;
   z-index: 1000;
   background-color: rgba(200, 200, 200, 0.9);
@@ -32,8 +33,6 @@
 .toolbar-bttn {
   width: 80px;
   height: 80px;
-  position: relative;
-  left: 0px;
   opacity: 0.7;
 }
 
@@ -70,48 +69,13 @@
   background: black;
 }
 
-svg {
-  width: 60px;
-  height: 60px;
-  margin: 10px 10px 10px 10px;
-}
-
 #mpaQrLogo {
-  position: fixed;
-  bottom: 30px;
-  right: 40px;
+  position: absolute;
+  bottom: -8px;
+  right: 0px;
   z-index: 1000;
   display: flex;
-}
-
-#inputCell {
-  /*display: none;*/
-  position: absolute;
-  left: 20px;
-  bottom: 120px;
-  width: calc(100% - 120px);
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 5px rgba(200, 200, 200, 0.9) solid;
-  overflow: hidden;
-  font: 15px arial, sans-serif;
-  padding: 5px;
-  /*contenteditable: true;*/
-}
-
-#formatCell {
-  display: none;
-  position: absolute;
-  right: 30px;
-  bottom: 120px;
-  width: 65px;
-  height: 20px;
-  background-color: rgba(200, 200, 200, 0.9);
-  border: 5px rgba(200, 200, 200, 0.9) solid;
-  overflow: hidden;
-  font: 15px arial, sans-serif;
-  padding: 5px;
-  /*contenteditable: true;*/
+  opacity: 0.9 !important;
 }
 
 img.bttn-icon {
