@@ -37,11 +37,14 @@ document.querySelector("*").addEventListener("dragleave", e => {
 document.querySelector("*").addEventListener("dragover", e => {
     e.preventDefault();
 }, false);
+document.querySelector("*").addEventListener("drop", e => {
+    e.preventDefault();
+}, false);
 
 /////////////////////////////////////////////////////////////////////////////////
 // Open file: Method 1: Drag & and Drop File on window                         //
 /////////////////////////////////////////////////////////////////////////////////
-document.querySelector("*").addEventListener("drop", e => {
+document.querySelector("#sheet01").addEventListener("drop", e => {
     e.preventDefault();
     let r = new FileReader();
     r.onload = e => {
