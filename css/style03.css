@@ -3,36 +3,26 @@
 /*******************************************/
 
 .form {
-
-    display: flex;
     display: none;
     flex-direction: column;
-    align-items: stretch;
-
     position: absolute;
     top: 8px;
     left: 8px;
-    width: calc(100% - 17px);
-    height: calc(100% - 18px);
+    bottom: 8px;
+    right: 8px;
+    overflow: hidden;
 
     background-color: rgba(200, 200, 200, 1);
-    overflow: hidden;
 }
 
-/**    **/
 .form-row-title {
     display: flex;
     flex-direction: row;
-
-    margin: 30px;
-    margin-bottom: 0px;
-    height: 40px;
-    padding: 5px;
-    margin-left: 35px;
-    margin-bottom: 0px;
-
-    /* background-color: rgba(100, 200, 200, 0.9); */
     overflow: hidden;
+
+    margin: 40px;
+    height: 40px;
+    margin-bottom: 0px;
 }
 
 .form-id {
@@ -50,12 +40,12 @@
 .form-row-inputs {
     display: flex;
     flex-direction: row;
+    overflow: hidden;  
+
     margin: 30px;
     margin-bottom: 0px;
     /* background-color: rgba(200, 200, 200, 0.9); */
-    overflow: hidden;
     height: 60px;
-    
 }
 
 .form-input {
@@ -64,10 +54,8 @@
     flex-grow: 1;
     /* background-color: rgba(100, 200, 200, 0.9); */
     /* border: 1px solid black; */
-    border-bottom: 1px solid black;
+    
     margin-left: 10px;
-    
-    
 }
 
 .form-input-header {
@@ -85,17 +73,24 @@
     height: 30px;
     font: 16px arial, sans-serif;
     border: 0px;
+    border-bottom: 2px solid grey;
     padding: 5px;
     background-color: rgba(220, 220, 220, 0.8);
-
 }
 
+.form-input-value:hover, .form-input-textarea-value:hover{
+    border-bottom: 2px solid black;
+}
 
-/**    **/
+.form-input-value:focus, .form-input-textarea-value:focus  {
+    border-bottom: 2px solid rgba(255, 0, 0, 0.8);;
+    background-color: rgba(255, 255, 255, 0.815);
+}
+
 .form-input-textarea {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
-    width:100%;
-    height:100%;
     font: 16px arial, sans-serif;
 
 }
@@ -103,23 +98,31 @@
 .form-input-textarea-value {
     flex-grow: 1;
     width:100%;
-    height:100%;
-    padding: 5px;
+    padding: 15px;
     font: 16px arial, sans-serif;
     background-color: rgba(220, 220, 220, 0.8);
     border: 0;
     resize: none;
-    
 }
 
 .form-row-comments{
     display: flex;
     flex-direction: row;
     margin: 30px;
+    margin-top: px;
     flex-grow: 1;
     /* background-color: rgba(200, 200, 200, 0.9); */
     overflow: hidden;
     resize: none;
     padding: 10px;
     z-index: 10;
+}
+
+.form-input-textarea-header {
+    width:100%;
+    padding: 5px;
+    font: 16px arial, sans-serif;
+    border: 0;
+    resize: none;
+    margin-bottom: 10px;
 }
