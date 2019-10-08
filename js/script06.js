@@ -2,7 +2,7 @@
 // Generate sample                          //
 //////////////////////////////////////////////
 
-data = mpa.range(1000).map(n => generateObj(n));
+data = mpa.range(50).map(n => generateObj(n));
 
 
 function generateObj(n) {

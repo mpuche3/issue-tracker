@@ -11,9 +11,10 @@
     height: calc(100vh - 105px);
     right: 8px;
     overflow: hidden;
-
     background-color: rgba(200, 200, 200, 1);
 }
+
+
 
 .form-row-title {
     display: flex;
@@ -94,6 +95,7 @@
     background-color: rgba(220, 220, 220, 0.8);
     border: 0;
     resize: none;
+    border-bottom: 2px solid grey;
 }
 
 .form-row-comments{

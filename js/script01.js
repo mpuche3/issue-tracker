@@ -194,7 +194,13 @@ function rowDblClick (e, row) {
                 newRowValue["id"] = id;
                 newRowValue[key] = elem.value;
                 sheet01.table.updateData([newRowValue]);
-                console.log(newRowValue);
+                //console.log(newRowValue);
+
+                // Todo: For the server update.
+                // updateServer(tableId, newRowValue).then(
+                //    sheet01.table.updateData([newRowValue])
+                // )
+
             })
         } catch {
             //
@@ -208,7 +214,6 @@ function loadStrSheet(strSheet, htmlContainerId) {
     const config = obj.config;
     const state = obj.state;
     const html = document.querySelector("#" + htmlContainerId);
-
     const table = new Tabulator("#" + htmlContainerId, config);
     const sheet = {
         config,
